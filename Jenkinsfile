@@ -16,7 +16,7 @@ pipeline {
             stage('Push to Docker Hub') {
                steps {
                  echo "Pushing the image to docker hub"
-                    sh "docker tag reddit $DOCKERHUB_CREDENTIALS_USR/node-app-test-new:latest"
+                    sh "docker tag node-app-test-new $DOCKERHUB_CREDENTIALS_USR/node-app-test-new:latest"
                     sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
                     sh "docker push $DOCKERHUB_CREDENTIALS_USR/node-app-test-new:latest"
                      }
